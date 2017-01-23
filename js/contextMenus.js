@@ -466,32 +466,20 @@ function autofillTemplateInit (suggestions, frame) {
 }
 
 function flashTemplateInit (frameProps) {
-  const canRunFlash = appStoreRenderer.state.getIn(['flash', 'enabled']) && getSetting(settings.FLASH_INSTALLED)
   const template = []
-  if (!canRunFlash) {
-    template.push({
-      label: locale.translation('openFlashPreferences'),
-      click: () => {
-        windowActions.newFrame({
-          location: 'about:preferences#security'
-        }, true)
-      }
-    })
-  } else {
-    template.push({
-      label: locale.translation('allowFlashOnce'),
-      click: () => {
-        appActions.allowFlashOnce(frameProps.get('tabId'), frameProps.get('location'), frameProps.get('isPrivate'))
-      }
-    })
-    if (!frameProps.get('isPrivate')) {
-      template.push({
-        label: locale.translation('allowFlashAlways'),
-        click: () => {
-          appActions.allowFlashAlways(frameProps.get('tabId'), frameProps.get('location'))
-        }
-      })
+  template.push({
+    label: locale.translation('allowFlashOnce'),
+    click: () => {
+      appActions.allowFlashOnce(frameProps.get('tabId'), frameProps.get('location'), frameProps.get('isPrivate'))
     }
+  })
+  if (!frameProps.get('isPrivate')) {
+    template.push({
+      label: locale.translation('allowFlashAlways'),
+      click: () => {
+        appActions.allowFlashAlways(frameProps.get('tabId'), frameProps.get('location'))
+      }
+    })
   }
   return template
 }

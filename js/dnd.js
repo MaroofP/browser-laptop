@@ -45,7 +45,7 @@ module.exports.onDragOver = (dragType, sourceBoundingRect, draggingOverKey, drag
 
   e.preventDefault()
   e.dataTransfer.dropEffect = 'move'
-  // Otherwise, only accept it if we have some frameProps
+  // Otherise, only accept it if we have some frameProps
   if (!dndData.hasDragData(e.dataTransfer, dragType)) {
     windowActions.setIsBeingDraggedOverDetail(dragType, draggingOverKey, {
       draggingOverLeftHalf: false,

@@ -18,11 +18,7 @@ let flashInstalled = false
 
 const getPepperFlashPath = memoize(() => {
   if (['darwin', 'win32'].includes(process.platform)) {
-    try {
-      return app.getPath('pepperFlashSystemPlugin')
-    } catch (e) {
-      return undefined
-    }
+    return app.getPath('pepperFlashSystemPlugin')
   }
   const basePath = '/usr/lib'
   const plugin = 'libpepflashplayer.so'
@@ -42,11 +38,7 @@ const getPepperFlashPath = memoize(() => {
 })
 
 module.exports.getFlashResourceId = () => {
-  const pepperPath = getPepperFlashPath()
-  if (!pepperPath) {
-    return 'unknown-flash-resource-id'
-  }
-  return path.basename(pepperPath)
+  return path.basename(getPepperFlashPath())
 }
 
 module.exports.showFlashMessageBox = (location, tabId) => {
@@ -97,9 +89,6 @@ module.exports.showFlashMessageBox = (location, tabId) => {
 module.exports.checkFlashInstalled = (cb) => {
   try {
     const pepperFlashSystemPluginPath = getPepperFlashPath()
-    if (!pepperFlashSystemPluginPath) {
-      return false
-    }
     const pepperFlashManifestPath = path.resolve(pepperFlashSystemPluginPath, '..', 'manifest.json')
     fs.readFile(pepperFlashManifestPath, (err, data) => {
       try {

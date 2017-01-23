@@ -21,7 +21,6 @@ const settings = {
   OFFER_SEARCH_SUGGESTIONS: 'search.offer-search-suggestions',
   // Tabs tab
   SWITCH_TO_NEW_TABS: 'tabs.switch-to-new-tabs',
-  TAB_CLOSE_ACTION: 'tabs.close-action',
   PAINT_TABS: 'tabs.paint-tabs',
   TABS_PER_PAGE: 'tabs.tabs-per-page',
   SHOW_TAB_PREVIEWS: 'tabs.show-tab-previews',

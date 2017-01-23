@@ -21,16 +21,8 @@ const bookmarksToolbarMode = {
   FAVICONS_ONLY: 'faviconsOnly'
 }
 
-const tabCloseAction = {
-  LAST_ACTIVE: 'lastActive',
-  NEXT: 'next',
-  FIRST: 'first',
-  PARENT: 'parent'
-}
-
 module.exports = {
   startsWithOption,
   newTabMode,
-  bookmarksToolbarMode,
-  tabCloseAction
+  bookmarksToolbarMode
 }

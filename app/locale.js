@@ -38,7 +38,6 @@ var rendererIdentifiers = function () {
     'saveLinkAs',
     'allowFlashOnce',
     'allowFlashAlways',
-    'openFlashPreferences',
     'openInNewWindow',
     'openInNewSessionTab',
     'openInNewSessionTabs',
